@@ -31,69 +31,72 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex flex-col lg:flex-row">
       {/* 左側: ロゴとタイトル（黄金比 62%） */}
-      <div className="flex items-center justify-center p-12" style={{ width: '62%' }}>
+      <div className="flex items-center justify-center p-8 lg:p-12 lg:w-[62%]">
         <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <div className="mb-12">
+          <div className="mb-8 lg:mb-12">
             <Image
               src="/BizBrain_logo.png"
               alt="BizBrain"
-              width={200}
-              height={200}
-              className="mx-auto opacity-95"
+              width={150}
+              height={150}
+              className="mx-auto opacity-95 lg:w-[200px] lg:h-[200px]"
               priority
             />
           </div>
-          <h1 className="text-6xl font-bold text-white tracking-tight">
+          <h1 className="text-4xl lg:text-6xl font-bold text-white tracking-tight">
             BizBrain
           </h1>
         </div>
       </div>
 
       {/* 右側: ログインフォーム（黄金比 38%） */}
-      <div className="flex items-center justify-center p-12" style={{ width: '38%' }}>
-        <div className={`w-full max-w-sm transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-10 shadow-lg">
-          <form onSubmit={handleLogin} className="space-y-8">
-            {/* メールアドレス */}
-            <div className="space-y-3">
-              <label htmlFor="email" className="block text-sm font-medium text-gray-300">
-                メールアドレス
-              </label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="your@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400/20 rounded-lg h-12"
-                required
-              />
-            </div>
-
-            {/* パスワード */}
-            <div className="space-y-3">
-              <label htmlFor="password" className="block text-sm font-medium text-gray-300">
-                パスワード
-              </label>
-              <div className="relative">
+      <div className="flex items-center justify-center p-8 lg:p-12 lg:w-[38%]">
+        <div className={`w-full max-w-lg transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 lg:p-12 shadow-lg">
+          <form onSubmit={handleLogin} className="space-y-6">
+            {/* フォーム要素を横並びに配置（レスポンシブ対応） */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* メールアドレス */}
+              <div className="space-y-3">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300">
+                  メールアドレス
+                </label>
                 <Input
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="••••••••"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400/20 rounded-lg pr-12 h-12"
+                  id="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400/20 rounded-lg h-12"
                   required
                 />
-                <button
-                  type="button"
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-white transition-colors"
-                  onClick={() => setShowPassword(!showPassword)}
-                >
-                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                </button>
+              </div>
+
+              {/* パスワード */}
+              <div className="space-y-3">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-300">
+                  パスワード
+                </label>
+                <div className="relative">
+                  <Input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="••••••••"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400/20 rounded-lg pr-12 h-12"
+                    required
+                  />
+                  <button
+                    type="button"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-white transition-colors"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -115,7 +118,7 @@ export default function LoginPage() {
           </form>
 
           {/* その他のリンク */}
-          <div className="mt-10 text-center">
+          <div className="mt-8 text-center">
             <a href="#" className="text-sm text-gray-400 hover:text-purple-400 transition-colors">
               パスワードをお忘れですか？
             </a>
