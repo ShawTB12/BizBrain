@@ -53,6 +53,11 @@
 .premium-input {
   position: relative;
   overflow: visible !important;
+  box-shadow: 
+    0 0 0 1px rgba(185, 131, 255, 0.15),
+    0 0 10px rgba(185, 131, 255, 0.08);
+  border-color: rgba(185, 131, 255, 0.2) !important;
+  transition: all 0.3s ease-in-out;
 }
 
 .premium-input::before {
@@ -74,16 +79,31 @@
   border-radius: 10px;
   z-index: -1;
   animation: premiumInputGlow 4s ease-in-out infinite;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s ease-in-out;
 }
 
 .premium-input:hover::before {
-  opacity: 1;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(185, 131, 255, 0.5),
+    transparent,
+    rgba(185, 131, 255, 0.5),
+    transparent
+  );
+  animation: premiumInputGlow 3s ease-in-out infinite;
 }
 
 .premium-input:focus::before {
-  opacity: 1;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(185, 131, 255, 0.7),
+    transparent,
+    rgba(185, 131, 255, 0.7),
+    transparent
+  );
   animation: premiumInputGlow 2s ease-in-out infinite;
 }
 
