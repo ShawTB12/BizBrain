@@ -163,10 +163,46 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: typewriterGradient 3s ease-in-out infinite;
+  filter: drop-shadow(0 6px 12px rgba(185, 131, 255, 0.4));
+}
+
+.typewriter-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px) scale(0.8);
+  filter: blur(2px);
+  transition: all 0.3s ease-out;
+}
+
+.typewriter-char.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
   text-shadow: 
-    0 0 30px rgba(185, 131, 255, 0.3),
-    0 0 60px rgba(185, 131, 255, 0.2);
-  filter: drop-shadow(0 4px 8px rgba(185, 131, 255, 0.2));
+    0 0 20px rgba(185, 131, 255, 0.8),
+    0 0 40px rgba(185, 131, 255, 0.6),
+    0 0 60px rgba(185, 131, 255, 0.4);
+  animation: charGlow 0.5s ease-out;
+}
+
+@keyframes charGlow {
+  0% {
+    text-shadow: 
+      0 0 10px rgba(185, 131, 255, 0.4),
+      0 0 20px rgba(185, 131, 255, 0.3);
+  }
+  50% {
+    text-shadow: 
+      0 0 30px rgba(185, 131, 255, 1),
+      0 0 60px rgba(185, 131, 255, 0.8),
+      0 0 80px rgba(185, 131, 255, 0.6);
+  }
+  100% {
+    text-shadow: 
+      0 0 20px rgba(185, 131, 255, 0.8),
+      0 0 40px rgba(185, 131, 255, 0.6),
+      0 0 60px rgba(185, 131, 255, 0.4);
+  }
 }
 
 .typewriter-text.complete {
@@ -179,8 +215,25 @@
   font-weight: normal;
   margin-left: 2px;
   text-shadow: 
-    0 0 10px rgba(185, 131, 255, 0.5),
-    0 0 20px rgba(185, 131, 255, 0.3);
+    0 0 20px rgba(185, 131, 255, 1),
+    0 0 40px rgba(185, 131, 255, 0.8),
+    0 0 60px rgba(185, 131, 255, 0.6);
+  animation: cursorPulse 1s ease-in-out infinite;
+}
+
+@keyframes cursorPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 20px rgba(185, 131, 255, 1),
+      0 0 40px rgba(185, 131, 255, 0.8),
+      0 0 60px rgba(185, 131, 255, 0.6);
+  }
+  50% {
+    text-shadow: 
+      0 0 30px rgba(185, 131, 255, 1),
+      0 0 60px rgba(185, 131, 255, 1),
+      0 0 90px rgba(185, 131, 255, 0.8);
+  }
 }
 
 .typewriter-cursor.visible {
@@ -204,21 +257,23 @@
 @keyframes typewriterComplete {
   0% {
     transform: scale(1);
-    filter: drop-shadow(0 4px 8px rgba(185, 131, 255, 0.2));
+    filter: drop-shadow(0 6px 12px rgba(185, 131, 255, 0.4));
   }
-  50% {
+  20% {
+    transform: scale(1.08);
+    filter: drop-shadow(0 12px 24px rgba(185, 131, 255, 0.8));
+  }
+  40% {
     transform: scale(1.05);
-    filter: drop-shadow(0 8px 16px rgba(185, 131, 255, 0.4));
-    text-shadow: 
-      0 0 40px rgba(185, 131, 255, 0.5),
-      0 0 80px rgba(185, 131, 255, 0.3);
+    filter: drop-shadow(0 16px 32px rgba(185, 131, 255, 1));
+  }
+  60% {
+    transform: scale(1.02);
+    filter: drop-shadow(0 8px 16px rgba(185, 131, 255, 0.6));
   }
   100% {
     transform: scale(1);
-    filter: drop-shadow(0 6px 12px rgba(185, 131, 255, 0.3));
-    text-shadow: 
-      0 0 30px rgba(185, 131, 255, 0.3),
-      0 0 60px rgba(185, 131, 255, 0.2);
+    filter: drop-shadow(0 6px 12px rgba(185, 131, 255, 0.4));
   }
 }
 
@@ -235,6 +290,85 @@
 
 .animate-fade-in {
   animation: fade-in 0.8s ease-out;
+}
+
+/* 発光粒子背景 */
+.glow-particles {
+  background: radial-gradient(circle at 20% 80%, rgba(185, 131, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(185, 131, 255, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 40% 40%, rgba(185, 131, 255, 0.05) 0%, transparent 50%);
+  animation: glowParticles1 8s ease-in-out infinite;
+}
+
+.glow-particles-2 {
+  background: radial-gradient(circle at 60% 70%, rgba(185, 131, 255, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 30% 30%, rgba(185, 131, 255, 0.06) 0%, transparent 50%),
+              radial-gradient(circle at 90% 60%, rgba(185, 131, 255, 0.04) 0%, transparent 50%);
+  animation: glowParticles2 12s ease-in-out infinite;
+}
+
+.glow-particles-3 {
+  background: radial-gradient(circle at 10% 50%, rgba(185, 131, 255, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 70% 90%, rgba(185, 131, 255, 0.03) 0%, transparent 50%),
+              radial-gradient(circle at 50% 10%, rgba(185, 131, 255, 0.04) 0%, transparent 50%);
+  animation: glowParticles3 15s ease-in-out infinite;
+}
+
+@keyframes glowParticles1 {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+@keyframes glowParticles2 {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8) rotate(-180deg);
+  }
+}
+
+@keyframes glowParticles3 {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(1.1) rotate(90deg);
+  }
+}
+
+/* 発光テキスト */
+.glow-text {
+  text-shadow: 
+    0 0 10px rgba(185, 131, 255, 0.6),
+    0 0 20px rgba(185, 131, 255, 0.4),
+    0 0 30px rgba(185, 131, 255, 0.2);
+  animation: glowTextPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowTextPulse {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px rgba(185, 131, 255, 0.6),
+      0 0 20px rgba(185, 131, 255, 0.4),
+      0 0 30px rgba(185, 131, 255, 0.2);
+  }
+  50% {
+    text-shadow: 
+      0 0 15px rgba(185, 131, 255, 0.8),
+      0 0 30px rgba(185, 131, 255, 0.6),
+      0 0 45px rgba(185, 131, 255, 0.4);
+  }
 }
 
 

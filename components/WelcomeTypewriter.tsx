@@ -20,7 +20,7 @@ export default function WelcomeTypewriter({ onComplete }: WelcomeTypewriterProps
   useEffect(() => {
     const timer = setTimeout(() => {
       if (phase === 1) {
-        // Phase 1: 初期カーソル点滅（0.5秒）
+        // Phase 1: 初期カーソル点滅（0.3秒）
         setPhase(2)
         setCurrentIndex(0)
       } else if (phase === 2) {
@@ -34,7 +34,7 @@ export default function WelcomeTypewriter({ onComplete }: WelcomeTypewriterProps
           // 少し間を置く
           setTimeout(() => {
             setCurrentIndex(0)
-          }, 200)
+          }, 100)
         }
       } else if (phase === 3) {
         // Phase 3: "BizBrain" をタイピング
@@ -50,7 +50,7 @@ export default function WelcomeTypewriter({ onComplete }: WelcomeTypewriterProps
           }, 2000)
         }
       }
-    }, phase === 1 ? 500 : phase === 2 ? 150 : phase === 3 ? 120 : 0)
+    }, phase === 1 ? 300 : phase === 2 ? 80 : phase === 3 ? 60 : 0)
 
     return () => clearTimeout(timer)
   }, [phase, currentIndex, onComplete])
@@ -65,11 +65,24 @@ export default function WelcomeTypewriter({ onComplete }: WelcomeTypewriterProps
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center p-8">
-      <div className="text-center">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center p-8 relative overflow-hidden">
+      {/* 発光粒子背景 */}
+      <div className="absolute inset-0 glow-particles"></div>
+      <div className="absolute inset-0 glow-particles-2"></div>
+      <div className="absolute inset-0 glow-particles-3"></div>
+      
+      <div className="text-center relative z-10">
         <div className="typewriter-container">
           <span className={`typewriter-text ${isComplete ? 'complete' : ''}`}>
-            {displayText}
+            {displayText.split('').map((char, index) => (
+              <span 
+                key={index} 
+                className={`typewriter-char ${index < displayText.length ? 'revealed' : ''}`}
+                style={{ animationDelay: `${index * 0.05}s` }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
           </span>
           {!isComplete && (
             <span className={`typewriter-cursor ${showCursor ? 'visible' : 'hidden'}`}>
@@ -79,7 +92,7 @@ export default function WelcomeTypewriter({ onComplete }: WelcomeTypewriterProps
         </div>
         {isComplete && (
           <div className="mt-8 text-gray-400 text-sm animate-fade-in">
-            まもなくダッシュボードに移動します...
+            <span className="glow-text">まもなくダッシュボードに移動します...</span>
           </div>
         )}
       </div>
