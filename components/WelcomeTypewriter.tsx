@@ -87,7 +87,7 @@ export default function WelcomeTypewriter({ onComplete }: WelcomeTypewriterProps
         </div>
         {isComplete && (
           <div className="mt-8 text-gray-400 text-sm animate-fade-in">
-            <span className="glow-text">まもなくダッシュボードに移動します...</span>
+            まもなくダッシュボードに移動します...
           </div>
         )}
       </div>

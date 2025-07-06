@@ -151,62 +151,24 @@
 }
 
 .typewriter-text {
-  background: linear-gradient(
-    90deg,
-    #B983FF,
-    #E6D7FF,
-    #C9A9FF,
-    #B983FF
-  );
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: typewriterGradient 3s ease-in-out infinite;
-  filter: drop-shadow(0 6px 12px rgba(185, 131, 255, 0.4));
+  color: #B983FF;
 }
 
 .typewriter-char {
   display: inline-block;
   opacity: 0;
   transform: translateY(10px) scale(0.8);
-  filter: blur(2px);
   transition: all 0.3s ease-out;
 }
 
 .typewriter-char.revealed {
   opacity: 1;
   transform: translateY(0) scale(1);
-  filter: blur(0);
-  text-shadow: 
-    0 0 10px rgba(185, 131, 255, 0.6),
-    0 0 20px rgba(185, 131, 255, 0.4),
-    0 0 30px rgba(185, 131, 255, 0.2);
-  animation: charGlow 0.5s ease-out;
 }
 
-@keyframes charGlow {
-  0% {
-    text-shadow: 
-      0 0 5px rgba(185, 131, 255, 0.4),
-      0 0 10px rgba(185, 131, 255, 0.3);
-  }
-  50% {
-    text-shadow: 
-      0 0 15px rgba(185, 131, 255, 0.8),
-      0 0 30px rgba(185, 131, 255, 0.6),
-      0 0 45px rgba(185, 131, 255, 0.4);
-  }
-  100% {
-    text-shadow: 
-      0 0 10px rgba(185, 131, 255, 0.6),
-      0 0 20px rgba(185, 131, 255, 0.4),
-      0 0 30px rgba(185, 131, 255, 0.2);
-  }
-}
+
 
 .typewriter-text.complete {
-  animation: typewriterComplete 1s ease-in-out;
   transform: scale(1);
 }
 
@@ -214,27 +176,9 @@
   color: #B983FF;
   font-weight: normal;
   margin-left: 2px;
-  text-shadow: 
-    0 0 10px rgba(185, 131, 255, 0.8),
-    0 0 20px rgba(185, 131, 255, 0.6),
-    0 0 30px rgba(185, 131, 255, 0.4);
-  animation: cursorPulse 1s ease-in-out infinite;
 }
 
-@keyframes cursorPulse {
-  0%, 100% {
-    text-shadow: 
-      0 0 10px rgba(185, 131, 255, 0.8),
-      0 0 20px rgba(185, 131, 255, 0.6),
-      0 0 30px rgba(185, 131, 255, 0.4);
-  }
-  50% {
-    text-shadow: 
-      0 0 15px rgba(185, 131, 255, 1),
-      0 0 30px rgba(185, 131, 255, 0.8),
-      0 0 45px rgba(185, 131, 255, 0.6);
-  }
-}
+
 
 .typewriter-cursor.visible {
   opacity: 1;
@@ -244,38 +188,9 @@
   opacity: 0;
 }
 
-/* Keyframe Animations */
-@keyframes typewriterGradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
 
-@keyframes typewriterComplete {
-  0% {
-    transform: scale(1);
-    filter: drop-shadow(0 6px 12px rgba(185, 131, 255, 0.4));
-  }
-  20% {
-    transform: scale(1.08);
-    filter: drop-shadow(0 12px 24px rgba(185, 131, 255, 0.8));
-  }
-  40% {
-    transform: scale(1.05);
-    filter: drop-shadow(0 16px 32px rgba(185, 131, 255, 1));
-  }
-  60% {
-    transform: scale(1.02);
-    filter: drop-shadow(0 8px 16px rgba(185, 131, 255, 0.6));
-  }
-  100% {
-    transform: scale(1);
-    filter: drop-shadow(0 6px 12px rgba(185, 131, 255, 0.4));
-  }
-}
+
+
 
 @keyframes fade-in {
   from {
@@ -294,29 +209,7 @@
 
 
 
-/* 発光テキスト */
-.glow-text {
-  text-shadow: 
-    0 0 10px rgba(185, 131, 255, 0.6),
-    0 0 20px rgba(185, 131, 255, 0.4),
-    0 0 30px rgba(185, 131, 255, 0.2);
-  animation: glowTextPulse 2s ease-in-out infinite;
-}
 
-@keyframes glowTextPulse {
-  0%, 100% {
-    text-shadow: 
-      0 0 10px rgba(185, 131, 255, 0.6),
-      0 0 20px rgba(185, 131, 255, 0.4),
-      0 0 30px rgba(185, 131, 255, 0.2);
-  }
-  50% {
-    text-shadow: 
-      0 0 15px rgba(185, 131, 255, 0.8),
-      0 0 30px rgba(185, 131, 255, 0.6),
-      0 0 45px rgba(185, 131, 255, 0.4);
-  }
-}
 
 
 
