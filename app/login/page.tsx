@@ -32,35 +32,32 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex">
-      {/* 左側: ロゴとタイトル */}
-      <div className="w-1/2 flex items-center justify-center p-8">
+      {/* 左側: ロゴとタイトル（黄金比 62%） */}
+      <div className="flex items-center justify-center p-12" style={{ width: '62%' }}>
         <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <div className="mb-8">
+          <div className="mb-12">
             <Image
               src="/BizBrain_logo.png"
               alt="BizBrain"
-              width={120}
-              height={120}
-              className="mx-auto opacity-90"
+              width={200}
+              height={200}
+              className="mx-auto opacity-95"
               priority
             />
           </div>
-          <h1 className="text-4xl font-bold text-white mb-4">
+          <h1 className="text-6xl font-bold text-white tracking-tight">
             BizBrain
           </h1>
-          <p className="text-gray-400 text-lg">
-            ビジネスインテリジェンス
-          </p>
         </div>
       </div>
 
-      {/* 右側: ログインフォーム */}
-      <div className="w-1/2 flex items-center justify-center p-8">
-        <div className={`w-full max-w-md transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
-          <form onSubmit={handleLogin} className="space-y-6">
+      {/* 右側: ログインフォーム（黄金比 38%） */}
+      <div className="flex items-center justify-center p-12" style={{ width: '38%' }}>
+        <div className={`w-full max-w-sm transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-10 shadow-lg">
+          <form onSubmit={handleLogin} className="space-y-8">
             {/* メールアドレス */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               <label htmlFor="email" className="block text-sm font-medium text-gray-300">
                 メールアドレス
               </label>
@@ -70,13 +67,13 @@ export default function LoginPage() {
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400/20 rounded-lg"
+                className="w-full bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400/20 rounded-lg h-12"
                 required
               />
             </div>
 
             {/* パスワード */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               <label htmlFor="password" className="block text-sm font-medium text-gray-300">
                 パスワード
               </label>
@@ -87,12 +84,12 @@ export default function LoginPage() {
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400/20 rounded-lg pr-10"
+                  className="w-full bg-white/5 border-white/20 text-white placeholder-gray-400 focus:border-purple-400 focus:ring-purple-400/20 rounded-lg pr-12 h-12"
                   required
                 />
                 <button
                   type="button"
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-white transition-colors"
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-white transition-colors"
                   onClick={() => setShowPassword(!showPassword)}
                 >
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
@@ -104,7 +101,7 @@ export default function LoginPage() {
             <Button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed h-12"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
@@ -118,7 +115,7 @@ export default function LoginPage() {
           </form>
 
           {/* その他のリンク */}
-          <div className="mt-6 text-center">
+          <div className="mt-10 text-center">
             <a href="#" className="text-sm text-gray-400 hover:text-purple-400 transition-colors">
               パスワードをお忘れですか？
             </a>
