@@ -31,31 +31,33 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center p-4">
-      {/* メインコンテンツ */}
-      <div className={`w-full max-w-md transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-        {/* ロゴとタイトル */}
-        <div className="text-center mb-8">
-          <div className="mb-6">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex">
+      {/* 左側: ロゴとタイトル */}
+      <div className="w-1/2 flex items-center justify-center p-8">
+        <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="mb-8">
             <Image
               src="/BizBrain_logo.png"
               alt="BizBrain"
-              width={64}
-              height={64}
+              width={120}
+              height={120}
               className="mx-auto opacity-90"
               priority
             />
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">
+          <h1 className="text-4xl font-bold text-white mb-4">
             BizBrain
           </h1>
-          <p className="text-gray-400 text-sm">
-            アカウントにログインしてください
+          <p className="text-gray-400 text-lg">
+            ビジネスインテリジェンス
           </p>
         </div>
+      </div>
 
-        {/* ログインフォーム */}
-        <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
+      {/* 右側: ログインフォーム */}
+      <div className="w-1/2 flex items-center justify-center p-8">
+        <div className={`w-full max-w-md transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-lg">
           <form onSubmit={handleLogin} className="space-y-6">
             {/* メールアドレス */}
             <div className="space-y-2">
@@ -120,6 +122,7 @@ export default function LoginPage() {
             <a href="#" className="text-sm text-gray-400 hover:text-purple-400 transition-colors">
               パスワードをお忘れですか？
             </a>
+          </div>
           </div>
         </div>
       </div>
