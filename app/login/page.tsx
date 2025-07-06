@@ -9,8 +9,8 @@ import { Input } from "@/components/ui/input"
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("jiro.shirato@g.softbank.co.jp")
+  const [password, setPassword] = useState("softbank")
   const [isLoaded, setIsLoaded] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
