@@ -2,6 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
+/* BizBrain Title Premium Animation */
+.bizbrain-title {
+  background: linear-gradient(
+    45deg,
+    #B983FF,
+    #E6D7FF,
+    #C9A9FF,
+    #9D71FF,
+    #B983FF
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: premiumGradient 6s ease-in-out infinite;
+  text-shadow: 
+    0 0 30px rgba(185, 131, 255, 0.3),
+    0 0 60px rgba(185, 131, 255, 0.2),
+    0 0 90px rgba(185, 131, 255, 0.1);
+  filter: drop-shadow(0 4px 8px rgba(185, 131, 255, 0.2));
+}
+
+@keyframes premiumGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+}
+
+/* Enhanced glow effect on hover */
+.bizbrain-title:hover {
+  text-shadow: 
+    0 0 40px rgba(185, 131, 255, 0.5),
+    0 0 80px rgba(185, 131, 255, 0.3),
+    0 0 120px rgba(185, 131, 255, 0.2);
+  filter: drop-shadow(0 6px 12px rgba(185, 131, 255, 0.3));
+  transition: all 0.3s ease-in-out;
+}
+
 
 
 :root {

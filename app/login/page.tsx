@@ -45,7 +45,7 @@ export default function LoginPage() {
               priority
             />
           </div>
-          <h1 className="text-4xl lg:text-6xl font-bold text-white tracking-tight">
+          <h1 className="text-4xl lg:text-6xl font-bold tracking-tight bizbrain-title">
             BizBrain
           </h1>
         </div>
