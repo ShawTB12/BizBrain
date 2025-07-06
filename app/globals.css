@@ -49,6 +49,72 @@
   transition: all 0.3s ease-in-out;
 }
 
+/* Premium Input Fields with Glow Animation */
+.premium-input {
+  position: relative;
+  overflow: visible !important;
+}
+
+.premium-input::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(185, 131, 255, 0.3),
+    transparent,
+    rgba(185, 131, 255, 0.3),
+    transparent
+  );
+  background-size: 400% 400%;
+  border-radius: 10px;
+  z-index: -1;
+  animation: premiumInputGlow 4s ease-in-out infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.premium-input:hover::before {
+  opacity: 1;
+}
+
+.premium-input:focus::before {
+  opacity: 1;
+  animation: premiumInputGlow 2s ease-in-out infinite;
+}
+
+@keyframes premiumInputGlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Enhanced focus state */
+.premium-input:focus {
+  box-shadow: 
+    0 0 0 1px rgba(185, 131, 255, 0.4),
+    0 0 20px rgba(185, 131, 255, 0.2),
+    0 0 40px rgba(185, 131, 255, 0.1);
+  border-color: rgba(185, 131, 255, 0.6) !important;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Subtle glow on hover */
+.premium-input:hover {
+  box-shadow: 
+    0 0 0 1px rgba(185, 131, 255, 0.2),
+    0 0 15px rgba(185, 131, 255, 0.1);
+  border-color: rgba(185, 131, 255, 0.3) !important;
+  transition: all 0.3s ease-in-out;
+}
+
 
 
 :root {
