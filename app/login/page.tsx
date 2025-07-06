@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation"
 import { Eye, EyeOff } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import WelcomeTypewriter from "@/components/WelcomeTypewriter"
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
@@ -13,6 +14,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("softbank")
   const [isLoaded, setIsLoaded] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [showTypewriter, setShowTypewriter] = useState(false)
   const router = useRouter()
 
   useEffect(() => {
@@ -26,8 +28,18 @@ export default function LoginPage() {
     // デモ用のログイン処理（実際のプロジェクトでは認証APIを呼び出す）
     await new Promise(resolve => setTimeout(resolve, 2000))
     
-    // ログイン成功時はメインページへリダイレクト
+    // ログイン成功時はタイプライターを表示
+    setIsLoading(false)
+    setShowTypewriter(true)
+  }
+
+  const handleTypewriterComplete = () => {
+    // タイプライター完了後、メインページへリダイレクト
     router.push("/")
+  }
+
+  if (showTypewriter) {
+    return <WelcomeTypewriter onComplete={handleTypewriterComplete} />
   }
 
   return (

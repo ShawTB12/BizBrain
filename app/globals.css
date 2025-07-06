@@ -135,6 +135,108 @@
   transition: all 0.3s ease-in-out;
 }
 
+/* Typewriter Animation Styles */
+.typewriter-container {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .typewriter-container {
+    font-size: 2rem;
+  }
+}
+
+.typewriter-text {
+  background: linear-gradient(
+    90deg,
+    #B983FF,
+    #E6D7FF,
+    #C9A9FF,
+    #B983FF
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: typewriterGradient 3s ease-in-out infinite;
+  text-shadow: 
+    0 0 30px rgba(185, 131, 255, 0.3),
+    0 0 60px rgba(185, 131, 255, 0.2);
+  filter: drop-shadow(0 4px 8px rgba(185, 131, 255, 0.2));
+}
+
+.typewriter-text.complete {
+  animation: typewriterComplete 1s ease-in-out;
+  transform: scale(1);
+}
+
+.typewriter-cursor {
+  color: #B983FF;
+  font-weight: normal;
+  margin-left: 2px;
+  text-shadow: 
+    0 0 10px rgba(185, 131, 255, 0.5),
+    0 0 20px rgba(185, 131, 255, 0.3);
+}
+
+.typewriter-cursor.visible {
+  opacity: 1;
+}
+
+.typewriter-cursor.hidden {
+  opacity: 0;
+}
+
+/* Keyframe Animations */
+@keyframes typewriterGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes typewriterComplete {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 4px 8px rgba(185, 131, 255, 0.2));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 8px 16px rgba(185, 131, 255, 0.4));
+    text-shadow: 
+      0 0 40px rgba(185, 131, 255, 0.5),
+      0 0 80px rgba(185, 131, 255, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 6px 12px rgba(185, 131, 255, 0.3));
+    text-shadow: 
+      0 0 30px rgba(185, 131, 255, 0.3),
+      0 0 60px rgba(185, 131, 255, 0.2);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
 
 
 :root {
