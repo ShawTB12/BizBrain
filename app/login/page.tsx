@@ -32,8 +32,8 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex flex-col lg:flex-row">
-      {/* 左側: ロゴとタイトル（調整後 55%） */}
-      <div className="flex items-center justify-center p-8 lg:p-12 lg:w-[55%]">
+      {/* 左側: ロゴとタイトル（調整後 50%） */}
+      <div className="flex items-center justify-center p-8 lg:p-12 lg:w-[50%]">
         <div className={`text-center transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <div className="mb-8 lg:mb-12">
             <Image
@@ -51,8 +51,8 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* 右側: ログインフォーム（調整後 45%） */}
-      <div className="flex items-center justify-start p-8 lg:p-12 lg:w-[45%]">
+      {/* 右側: ログインフォーム（調整後 50%） */}
+      <div className="flex items-center justify-start p-8 lg:pl-0 lg:pr-24 lg:w-[50%]">
         <div className={`w-full max-w-2xl transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 lg:p-16 shadow-lg">
           <form onSubmit={handleLogin} className="space-y-8">
